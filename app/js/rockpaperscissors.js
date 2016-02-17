@@ -22,93 +22,97 @@ function randomPlay() {
 ////////////////////////////////////////////////
 
 function getPlayerMove(move) {
-    var x = move || getInput();
-    return x;
+    var playerMove = move || getInput();
+    return playerMove;
 }
 
 function getComputerMove(move) {
-    var y = move || randomPlay();
-    return y;
+    var computerMove = move || randomPlay();
+    return computerMove;
 }
 
 function getWinner(playerMove,computerMove) {
     var winner;
     switch (playerMove === "rock"){
         case (computerMove == "paper"):
-            winner = computer;
+            winner = "computer";
             break;
         case (computerMove === "scissors"):
-            winner = player;
+            winner = "player";
             break;
         default:
-            winner = tie;
+            winner = "tie";
             break;
     }
     switch (playerMove === "paper"){
         case (computerMove == "rock"):
-            winner = player;
+            winner = "player";
             break;
         case (computerMove === "scissors"):
-            winner = computer;
+            winner = "computer";
             break;
         default:
-            winner = tie;
+            winner = "tie";
             break;
     }
     switch (playerMove === "scissors"){
         case (computerMove == "rock"):
-            winner = computer;
+            winner = "computer";
             break;
         case (computerMove === "paper"):
-            winner = winner;
+            winner = "player";
             break;
         default:
-            winner = tie;
+            winner = "tie";
             break;
     }
     ////
     switch (computerMove === "rock"){
         case (playerMove == "paper"):
-            winner = computer;
+            winner = "computer";
             break;
         case (playerMove === "scissors"):
-            winner = player;
+            winner = "player";
             break;
         default:
-            winner = tie;
+            winner = "tie";
             break;
     }
     switch (computerMove === "paper"){
         case (playerMove == "rock"):
-            winner = player;
+            winner = "player";
             break;
         case (playerMove === "scissors"):
-            winner = computer;
+            winner = "computer";
             break;
         default:
-            winner = tie;
+            winner = "tie";
             break;
     }
     switch (computerMove === "scissors"){
         case (playerMove == "rock"):
-            winner = computer;
+            winner = "computer";
             break;
         case (playerMove === "paper"):
-            winner = winner;
+            winner = "player";
             break;
         default:
-            winner = tie;
+            winner = "tie";
             break;
     }
     return winner;
 }
 
-function playToFive() {
+function playToFive(getPlayerMove, getComputerMove, getWinner ) {
     console.log("Let's play Rock, Paper, Scissors");
     var playerWins = 0;
     var computerWins = 0;
-    // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
+    for(var i = 0; i < 5; i++){
+        getPlayerMove();
+        getComputerMove();
+        getWinner();
+        console.log('Player chose' + playerMove + ", while computer chose " + computerMove);
+        console.log("The score is " + playerWins + "to " + computerWins);
+    }
     return [playerWins, computerWins];
 }
-

@@ -22,25 +22,84 @@ function randomPlay() {
 ////////////////////////////////////////////////
 
 function getPlayerMove(move) {
-    // Write an expression that operates on a variable called `move`
-    // If a `move` has a value, your expression should evaluate to that value.
-    // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    return /* Your Expression */;
+    var x = move || getInput();
+    return x;
 }
 
 function getComputerMove(move) {
-    // Write an expression that operates on a variable called `move`
-    // If a `move` has a value, your expression should evaluate to that value.
-    // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    return /* Your Expression */;
+    var y = move || randomPlay();
+    return y;
 }
 
 function getWinner(playerMove,computerMove) {
     var winner;
-    // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
-    // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
-    // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
-    /* YOUR CODE HERE */
+    switch (playerMove === "rock"){
+        case (computerMove == "paper"):
+            winner = computer;
+            break;
+        case (computerMove === "scissors"):
+            winner = player;
+            break;
+        default:
+            winner = tie;
+            break;
+    }
+    switch (playerMove === "paper"){
+        case (computerMove == "rock"):
+            winner = player;
+            break;
+        case (computerMove === "scissors"):
+            winner = computer;
+            break;
+        default:
+            winner = tie;
+            break;
+    }
+    switch (playerMove === "scissors"){
+        case (computerMove == "rock"):
+            winner = computer;
+            break;
+        case (computerMove === "paper"):
+            winner = winner;
+            break;
+        default:
+            winner = tie;
+            break;
+    }
+    ////
+    switch (computerMove === "rock"){
+        case (playerMove == "paper"):
+            winner = computer;
+            break;
+        case (playerMove === "scissors"):
+            winner = player;
+            break;
+        default:
+            winner = tie;
+            break;
+    }
+    switch (computerMove === "paper"){
+        case (playerMove == "rock"):
+            winner = player;
+            break;
+        case (playerMove === "scissors"):
+            winner = computer;
+            break;
+        default:
+            winner = tie;
+            break;
+    }
+    switch (computerMove === "scissors"){
+        case (playerMove == "rock"):
+            winner = computer;
+            break;
+        case (playerMove === "paper"):
+            winner = winner;
+            break;
+        default:
+            winner = tie;
+            break;
+    }
     return winner;
 }
 
